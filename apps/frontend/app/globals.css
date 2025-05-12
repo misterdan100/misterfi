@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 37 33% 91%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 37 33% 93%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 37 33% 93%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 35 91.2% 40%;
+    --primary-foreground: 37 33% 98%;
+
+    --secondary: 37 25% 86%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 37 25% 86%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 37 25% 86%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 37 30% 83%;
+    --input: 37 30% 83%;
+    --ring: 35 85% 45%;
+
+    --radius: 0.5rem;
+
+    /* GitHub corner colors */
+    --github-corner-color: hsl(35, 91.2%, 40%);
+    --github-corner-background: hsl(37, 33%, 91%);
+
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 30 15% 12%;
+    --foreground: 40 25% 98%;
+
+    --card: 30 15% 14%;
+    --card-foreground: 40 25% 98%;
+
+    --popover: 30 15% 14%;
+    --popover-foreground: 40 25% 98%;
+
+    --primary: 35 91.2% 55.8%;
+    --primary-foreground: 30 15% 12%;
+
+    --secondary: 30 15% 17%;
+    --secondary-foreground: 40 25% 98%;
+
+    --muted: 30 15% 17%;
+    --muted-foreground: 40 15% 75%;
+
+    --accent: 30 15% 17%;
+    --accent-foreground: 40 25% 98%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 40 25% 98%;
+
+    --border: 30 15% 17%;
+    --input: 30 15% 17%;
+    --ring: 35 91.2% 55.8%;
+
+    /* GitHub corner colors for dark mode */
+    --github-corner-color: hsl(35, 91.2%, 55.8%);
+    --github-corner-background: hsl(30, 15%, 12%);
+
+    --chart-1: 346 77% 49.8%;
+    --chart-2: 24 85% 49.8%;
+    --chart-3: 262 83% 57.8%;
+    --chart-4: 199 89% 47.8%;
+    --chart-5: 142 70% 45.8%;
+  }
+
+  /* Theme transition at root level only */
+  :root {
+    color-scheme: light dark;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Interactive transitions only */
+  .hover-transition {
+    @apply transition-[background-color,transform,opacity] duration-200;
+  }
+}
