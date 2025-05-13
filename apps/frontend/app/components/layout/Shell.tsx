@@ -20,6 +20,7 @@ import { motion } from "framer-motion";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { GitHubCorner } from "../ui/GitHubCorner";
+import Image from "next/image";
 
 interface ShellProps {
   children: React.ReactNode;
@@ -80,7 +81,15 @@ export function Shell({ children }: ShellProps) {
             </SheetTrigger>
             <SheetContent side="left" className="p-0 w-72">
               <SheetHeader className="px-6 py-4 border-b">
-                <SheetTitle>🏦 MisterFi</SheetTitle>
+                <SheetTitle>
+                  <Image
+                    src="https://raw.githubusercontent.com/misterdan100/misterdan-cv-v1/3c8a1efa2243b5df709c190cb4a142a259504922/src/assets/img/daniel-merchan-logo_4.svg"
+                    alt="Logo"
+                    width={40}
+                    height={40}
+                    priority
+                  />
+                  MisterFi</SheetTitle>
               </SheetHeader>
               <MobileSidebar />
             </SheetContent>
@@ -102,7 +111,13 @@ export function Shell({ children }: ShellProps) {
                     "text-lg font-semibold flex items-center gap-2"
                   )}
                 >
-                  <span>🏦</span>
+                  <Image
+                    src="https://raw.githubusercontent.com/misterdan100/misterdan-cv-v1/3c8a1efa2243b5df709c190cb4a142a259504922/src/assets/img/daniel-merchan-logo_4.svg"
+                    alt="Logo"
+                    width={30}
+                    height={30}
+                    priority
+                  />
                   <span className={cn(isDesktopCollapsed && "hidden")}>
                     MisterFi
                   </span>

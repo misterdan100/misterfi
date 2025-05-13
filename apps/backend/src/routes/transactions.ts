@@ -462,16 +462,21 @@ router.post(
       }
 
       // Create transactions in sequence
-      const createdTransactions = await Promise.all(
-        transactions.map((transaction) =>
-          TransactionsService.create(auth.userId, transaction),
-        ),
-      );
+      // const createdTransactions = await Promise.all(
+      //   transactions.map((transaction) =>
+      //     TransactionsService.create(auth.userId, transaction),
+      //   ),
+      // );
+
+      const createdTransactions = await TransactionsService.createMany(
+        auth.userId,
+        transactions
+      )
 
       res.json({
         status: 'success',
         message: 'Sample transactions created successfully',
-        count: createdTransactions.length,
+        count: createdTransactions.data?.length,
         userId: auth.userId,
       });
     } catch (error) {

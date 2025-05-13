@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTransactionActions } from "../redux/hooks";
 import { Transaction } from "../redux/slices/transactions/types";
+import { useCallback } from "react"; // Import useCallback
 
 const TRANSACTIONS_QUERY_KEY = ["transactions"] as const;
 
@@ -21,12 +22,12 @@ export function usePrefetchTransactions() {
   const queryClient = useQueryClient();
   const { fetchAll } = useTransactionActions();
 
-  return () => {
+  return useCallback(() => { // Wrap the returned function in useCallback
     return queryClient.prefetchQuery({
       queryKey: TRANSACTIONS_QUERY_KEY,
       queryFn: fetchAll,
     });
-  };
+  }, [queryClient, fetchAll]); // Add dependencies for useCallback
 }
 
 // Helper to get typed transactions from the query result

@@ -29,16 +29,6 @@ export const TransactionsService = {
     data: Omit<TransactionInsert, 'user_id'>,
   ): Promise<Transaction> {
 
-    console.log("Args recibidos en create...........................................................................:", userId, data);
-    console.log("Data...........................................................................:",  {data});
-    console.log('types of data properties:', {
-      description: typeof data.description,
-      amount: typeof data.amount,
-      date: typeof data.date,
-      category: typeof data.category,
-      type: typeof data.type,
-    })
-
     const { data: transaction, error } = await supabase
       .from('transactions')
       .insert({
@@ -48,9 +38,6 @@ export const TransactionsService = {
       .select()
       .single();
 
-    console.log("Transaction...........................................................................:", transaction);
-    console.log("Error...........................................................................:", error);
-
     if (error) {
       throw new TransactionError(error.message);
     }
@@ -59,11 +46,50 @@ export const TransactionsService = {
   },
 
   /**
+   * Create many new transactions
+   * @throws {TransactionError} If creation fails
+   */
+  async createMany(
+    userId: string,
+    transactionArray: Omit<TransactionInsert, 'user_id'>[]
+  ): Promise<{
+      ok: boolean,
+      data?: any[]
+    }> {
+
+      if(!transactionArray || transactionArray.length === 0) {
+        return {
+          ok: false,
+        }
+      }
+
+      const transactionToInsert = transactionArray.map( trans => ({
+        ...trans,
+        user_id: userId
+      }))
+
+
+    const { data, error } = await supabase
+      .from('transactions')
+      .insert(transactionToInsert)
+      .select()
+
+      if(error) {
+        console.error('Error bulk inserting transacctions:', error)
+        throw error
+      }
+
+      return {
+        ok: true,
+        data
+      }
+  },
+
+  /**
    * Get all transactions for a user
    * @throws {TransactionError} If fetch fails
    */
   async list(userId: string): Promise<Transaction[]> {
-    console.log("Args recibidos en list:", userId);
     const { data: transactions, error } = await supabase
       .from('transactions')
       .select('*')

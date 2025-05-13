@@ -64,6 +64,7 @@ export function AddTransactionDialog({ children }: AddTransactionDialogProps) {
           error instanceof Error ? error.message : "Failed to add transaction",
         variant: "destructive",
       });
+    } finally {
       setIsSubmitting(false);
     }
   }
@@ -71,9 +72,9 @@ export function AddTransactionDialog({ children }: AddTransactionDialogProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] max-h-[85vh] p-0">
+      <DialogContent className="p-0 sm:max-w-[500px] max-h-[85vh]">
         <DialogHeader className="p-6 pb-0">
-          <DialogTitle className="text-2xl font-semibold tracking-tight">
+          <DialogTitle className="font-semibold text-2xl tracking-tight">
             Add Transaction
           </DialogTitle>
         </DialogHeader>

@@ -88,7 +88,7 @@ export function DatabaseActionsDialog() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="ghost" size="icon">
-          <Database className="h-5 w-5" />
+          <Database className="w-5 h-5" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
@@ -103,7 +103,7 @@ export function DatabaseActionsDialog() {
           >
             {isPopulating ? (
               <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                 Populating...
               </>
             ) : (
@@ -119,7 +119,7 @@ export function DatabaseActionsDialog() {
               >
                 {isDeleting ? (
                   <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                     Deleting...
                   </>
                 ) : (
@@ -139,11 +139,11 @@ export function DatabaseActionsDialog() {
                 <AlertDialogCancel>Cancel</AlertDialogCancel>
                 <AlertDialogAction
                   onClick={handleDeleteAll}
-                  className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                  className="bg-destructive hover:bg-destructive/90 text-destructive-foreground"
                 >
                   {isDeleting ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                       Deleting...
                     </>
                   ) : (

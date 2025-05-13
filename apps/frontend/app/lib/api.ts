@@ -8,12 +8,6 @@ export async function fetchWithAuth(
   options: RequestInit = {}
 ) {
 
-  if(options.method ) {
-    console.log('Hay metodo', options.method)
-
-  } else {
-    console.log('No hay metodo', options)
-  }
   try {
     // If no token, wait briefly and retry up to 3 times
     if (!token) {

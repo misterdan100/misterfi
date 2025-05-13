@@ -62,7 +62,6 @@ export const createTransaction = createAsyncThunk<
 >(
   "transactions/createTransaction",
   async ({ token, data }, { rejectWithValue }) => {
-    console.log({token, data})
     try {
       const response: TransactionResponse = await fetchWithAuth(
         "/transactions",
