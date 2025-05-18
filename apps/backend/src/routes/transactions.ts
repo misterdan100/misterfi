@@ -13,6 +13,17 @@ import type { TransactionType } from '../types/database.js';
 
 const router = Router();
 
+const ping: RequestHandler = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  res.json({
+      status: 'success',
+      message: 'Everything ok'
+    });
+}
+
 /**
  * GET /transactions
  * List all transactions for the authenticated user
@@ -492,5 +503,6 @@ router.get('/:id', getTransaction);
 router.post('/', createTransaction);
 router.put('/:id', updateTransaction);
 router.delete('/:id', deleteTransaction);
+router.get('/ping', ping)
 
 export default router;
