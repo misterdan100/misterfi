@@ -24,7 +24,7 @@ export function TransactionTypeField({
             onValueChange={field.onChange}
             className="w-full"
           >
-            <TabsList className="w-full grid grid-cols-2 gap-1">
+            <TabsList className="gap-1 grid grid-cols-2 bg-muted w-full">
               <TabsTrigger
                 value="expense"
                 disabled={isSubmitting}
@@ -38,7 +38,7 @@ export function TransactionTypeField({
                 value="income"
                 disabled={isSubmitting}
                 className={cn(
-                  "w-full data-[state=active]:bg-green-600 data-[state=active]:text-white"
+                  "w-full data-[state=active]:bg-[#21BF73] data-[state=active]:text-white"
                 )}
               >
                 Income

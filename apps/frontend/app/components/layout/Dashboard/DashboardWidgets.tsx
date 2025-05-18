@@ -7,7 +7,7 @@ import { TransactionsWidget } from "@/app/components/layout/Dashboard/Widgets/Tr
 import { MonthlyOverviewWidget } from "@/app/components/layout/Dashboard/Widgets/MonthlyOverviewWidget/index";
 import { SpendingByCategoryWidget } from "@/app/components/layout/Dashboard/Widgets/SpendingByCategoryWidget/index";
 import { Card } from "@/app/components/ui/card/Card";
-import { Plus, Database } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 import { DatabaseActionsDialog } from "../../shared/database/DatabaseActionsDialog";
 import { AddTransactionDialog } from "../../shared/transactions/add-transaction-dialog";
@@ -35,18 +35,22 @@ export function DashboardWidgets() {
               Start tracking your finances in two ways:
             </p>
             <div className="gap-6 grid">
-              <div className="flex items-start gap-4">
-                <div className="flex justify-center items-center bg-background border rounded-lg w-10 h-10 shrink-0">
+              <div className="flex items-center gap-4">
+                {/* <div className="flex justify-center items-center bg-background border rounded-lg w-10 h-10 shrink-0"> */}
                   {/* <Plus className="w-5 h-5" /> */}
                   {isSignedIn && (
                     <AddTransactionDialog>
-                      <Button variant="ghost" size="icon">
+                      <Button 
+                        variant="ghost" 
+                        // size="icon"
+                        className="bg-accent hover:bg-transparent border hover:border-accent border-transparent w-fit hover:text-accent text-accent-foreground"
+                      >
                         <Plus className="w-5 h-5" />
-                        <span className="sr-only">Add transaction</span>
+                        <span className="hidden sm:block">Add</span>
                       </Button>
                     </AddTransactionDialog>
                   )}
-                </div>
+                {/* </div> */}
                 <div className="space-y-1">
                   <p className="font-medium text-base">
                     Add transactions manually
@@ -56,14 +60,14 @@ export function DashboardWidgets() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div 
 
-                className="flex justify-center items-center bg-background border rounded-lg w-10 h-10 shrink-0">
+
+              <div className="flex items-center gap-4">
+                {/* <div 
+                className="flex justify-center items-center bg-background border rounded-lg w-fit h-10 shrink-0"> */}
                   {/* <Database className="w-5 h-5" /> */}
                   {isSignedIn && <DatabaseActionsDialog />}
-
-                </div>
+                {/* </div> */}
                 <div className="space-y-1">
                   <p className="font-medium text-base">Use sample data</p>
                   <p className="text-muted-foreground text-sm">
@@ -71,6 +75,8 @@ export function DashboardWidgets() {
                   </p>
                 </div>
               </div>
+
+
             </div>
           </div>
         </div>

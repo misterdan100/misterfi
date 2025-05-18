@@ -87,8 +87,13 @@ export function DatabaseActionsDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button 
+          variant="ghost" 
+          // size="icon"
+          className="bg-card hover:bg-transparent border border-card-foreground/25 hover:border-accent w-fit text-card-foreground hover:text-accent"
+        >
           <Database className="w-5 h-5" />
+          <span className="hidden sm:block">Data</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
@@ -139,7 +144,7 @@ export function DatabaseActionsDialog() {
                 <AlertDialogCancel>Cancel</AlertDialogCancel>
                 <AlertDialogAction
                   onClick={handleDeleteAll}
-                  className="bg-destructive hover:bg-destructive/90 text-destructive-foreground"
+                  className="bg-destructive hover:bg-destructive/70 disabled:opacity-50 text-destructive-foreground hover:text-destructive dark:hover:text-destructive"
                 >
                   {isDeleting ? (
                     <>

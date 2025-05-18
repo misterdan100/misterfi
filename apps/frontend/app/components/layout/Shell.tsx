@@ -19,7 +19,6 @@ import { cn } from "@/app/lib/utils";
 import { motion } from "framer-motion";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
-import { GitHubCorner } from "../ui/GitHubCorner";
 import Image from "next/image";
 
 interface ShellProps {
@@ -61,9 +60,7 @@ export function Shell({ children }: ShellProps) {
   }
 
   return (
-    <div className="relative flex min-h-screen">
-      {/* GitHub Corner - always visible */}
-      <GitHubCorner href="https://github.com/misterdan100/misterfi" />
+    <div className="relative flex items-center min-h-screen">
 
       {isSignedIn && (
         <>
@@ -73,7 +70,7 @@ export function Shell({ children }: ShellProps) {
               <Button
                 variant="ghost"
                 size="icon"
-                className="top-4 left-4 z-50 fixed"
+                className="top-3 left-4 z-50 fixed"
               >
                 <MenuIcon className="w-6 h-6" />
                 <span className="sr-only">Toggle menu</span>
@@ -183,7 +180,7 @@ export function Shell({ children }: ShellProps) {
 function MobileSidebar() {
   return (
     <ScrollArea className="h-[calc(100vh-4rem)]">
-      <div className="flex flex-col gap-4 p-6">
+      <div className="flex flex-col items-center gap-4 p-6">
         <MainNav />
         <Separator />
         <QuickStats />

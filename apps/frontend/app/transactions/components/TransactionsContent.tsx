@@ -135,10 +135,10 @@ export function TransactionsContent() {
   return (
     <TransactionsErrorBoundary>
       <div className="relative bg-background">
-        <div className="mx-auto w-full max-w-7xl px-6 pb-6">
+        <div className="mx-auto px-6 pb-6 w-full max-w-7xl">
           <div className="flex flex-col gap-6">
             <TransactionsHeader filteredTransactions={filteredTransactions} />
-            <div className="relative rounded-lg border bg-card">
+            <div className="relative bg-card border rounded-lg">
               <TransactionsFilters
                 searchTerm={searchTerm}
                 onSearchChange={handleSearchChange}
@@ -152,9 +152,9 @@ export function TransactionsContent() {
                   <div className="space-y-4">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <div key={i} className="mb-6 last:mb-0">
-                        <div className="mb-2 flex items-center justify-between">
-                          <div className="h-5 w-[100px] animate-pulse bg-muted" />
-                          <div className="h-4 w-[60px] animate-pulse bg-muted" />
+                        <div className="flex justify-between items-center mb-2">
+                          <div className="bg-muted w-[100px] h-5 animate-pulse" />
+                          <div className="bg-muted w-[60px] h-4 animate-pulse" />
                         </div>
                         <Table>
                           <TableHeader>
@@ -162,7 +162,7 @@ export function TransactionsContent() {
                               <TableHead className="w-[120px]">Date</TableHead>
                               <TableHead>Description</TableHead>
                               <TableHead>Category</TableHead>
-                              <TableHead className="text-right w-[120px]">
+                              <TableHead className="w-[120px] text-right">
                                 Amount
                               </TableHead>
                               <TableHead className="w-[50px]" />
@@ -172,19 +172,19 @@ export function TransactionsContent() {
                             {[1, 2].map((item) => (
                               <TableRow key={item}>
                                 <TableCell>
-                                  <div className="h-4 w-[80px] animate-pulse bg-muted" />
+                                  <div className="bg-muted w-[80px] h-4 animate-pulse" />
                                 </TableCell>
                                 <TableCell>
-                                  <div className="h-4 w-[120px] animate-pulse bg-muted" />
+                                  <div className="bg-muted w-[120px] h-4 animate-pulse" />
                                 </TableCell>
                                 <TableCell>
-                                  <div className="h-4 w-[80px] animate-pulse bg-muted" />
+                                  <div className="bg-muted w-[80px] h-4 animate-pulse" />
                                 </TableCell>
                                 <TableCell>
-                                  <div className="h-4 w-[60px] ml-auto animate-pulse bg-muted" />
+                                  <div className="bg-muted ml-auto w-[60px] h-4 animate-pulse" />
                                 </TableCell>
                                 <TableCell>
-                                  <div className="h-8 w-8 rounded-md animate-pulse bg-muted" />
+                                  <div className="bg-muted rounded-md w-8 h-8 animate-pulse" />
                                 </TableCell>
                               </TableRow>
                             ))}
@@ -194,9 +194,9 @@ export function TransactionsContent() {
                     ))}
                   </div>
                 ) : filteredTransactions.length === 0 ? (
-                  <div className="flex min-h-[400px] flex-col items-center justify-center gap-4 text-center">
+                  <div className="flex flex-col justify-center items-center gap-4 min-h-[400px] text-center">
                     <div className="space-y-2">
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         {transactions.length === 0
                           ? "No transactions found"
                           : "No transactions match your filters"}
@@ -214,17 +214,17 @@ export function TransactionsContent() {
                             defaultOpen
                             className="mb-4 last:mb-0"
                           >
-                            <CollapsibleTrigger className="group flex w-full items-center justify-between rounded-lg p-2 text-sm font-medium hover:bg-accent/50 transition-colors">
+                            <CollapsibleTrigger className="group flex justify-between items-center hover:bg-accent/50 p-2 rounded-lg w-full font-medium text-sm transition-colors">
                               <div className="flex items-center gap-3">
-                                <h4 className="capitalize text-primary">
+                                <h4 className="text-primary capitalize">
                                   {getGroupDisplayName(group, transactions)}
                                 </h4>
-                                <div className="flex items-center gap-2 text-xs text-primary/60">
+                                <div className="flex items-center gap-2 text-primary/60 text-xs">
                                   <span>•</span>
                                   <span>{transactions.length} items</span>
                                 </div>
                               </div>
-                              <ChevronDown className="h-4 w-4 text-primary transition-all duration-200 ease-in-out group-data-[state=open]:rotate-180" />
+                              <ChevronDown className="w-4 h-4 text-primary group-data-[state=open]:rotate-180 transition-all duration-200 ease-in-out" />
                             </CollapsibleTrigger>
                             <CollapsibleContent className="pt-2">
                               <Table>
@@ -237,7 +237,7 @@ export function TransactionsContent() {
                                     <TableHead className="w-[180px]">
                                       Category
                                     </TableHead>
-                                    <TableHead className="text-right w-[120px]">
+                                    <TableHead className="w-[120px] text-right">
                                       Amount
                                     </TableHead>
                                     <TableHead className="w-[50px]" />
@@ -247,7 +247,7 @@ export function TransactionsContent() {
                                   {transactions.map((transaction) => (
                                     <TableRow
                                       key={transaction.id}
-                                      className="group cursor-pointer hover:bg-muted/50"
+                                      className="group hover:bg-muted/50 cursor-pointer"
                                       onClick={() =>
                                         handleTransactionClick(transaction)
                                       }
@@ -271,7 +271,7 @@ export function TransactionsContent() {
                                           )}
                                         </Badge>
                                       </TableCell>
-                                      <TableCell className="text-right tabular-nums">
+                                      <TableCell className="tabular-nums text-right">
                                         <span
                                           className={cn(
                                             "font-medium",

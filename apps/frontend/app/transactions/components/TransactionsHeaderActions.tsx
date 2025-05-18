@@ -21,6 +21,10 @@ export function TransactionsHeaderActions({
       // Create CSV content
       const csvContent = [
         // Headers
+        ["# Exported Transactions from MisterFi"],
+        ["# Exported on", "", "", "", format(new Date(), "yyyy-MM-dd")],
+        ["# Total Transactions", "", "", "", filteredTransactions.length],
+        [""],
         ["Date", "Description", "Category", "Type", "Amount"].join(","),
         // Data rows
         ...filteredTransactions.map((t) =>
@@ -32,13 +36,16 @@ export function TransactionsHeaderActions({
             t.amount.toFixed(2),
           ].join(",")
         ),
+        [""],
+        ["Visit: ", "https://github.com/misterdan100/misterfi"]
+
       ].join("\n");
 
       // Create and trigger download
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = `transactions_export_${format(new Date(), "yyyy-MM-dd")}.csv`;
+      link.download = `transactions_export_${format(new Date(), "yyyy-MM-dd")}_MisterFi.csv`;
       link.click();
 
       toast({
@@ -63,12 +70,12 @@ export function TransactionsHeaderActions({
         onClick={handleExport}
         disabled={filteredTransactions.length === 0}
       >
-        <Download className="mr-2 h-4 w-4" />
+        <Download className="mr-2 w-4 h-4" />
         Download CSV
       </Button>
       <AddTransactionDialog>
         <Button size="sm" className="w-full sm:w-auto">
-          <Plus className="mr-2 h-4 w-4" />
+          <Plus className="mr-2 w-4 h-4" />
           Add Transaction
         </Button>
       </AddTransactionDialog>

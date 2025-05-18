@@ -64,9 +64,9 @@ export function DeleteTransactionDialog({
         <Button
           variant="ghost"
           size="icon"
-          className="h-8 w-8 p-0 opacity-0 group-hover:opacity-100"
+          className="hover:bg-destructive opacity-0 group-hover:opacity-100 p-0 w-8 h-8 text-muted-foreground hover:text-white"
         >
-          <Trash2 className="h-4 w-4 text-muted-foreground hover:text-destructive" />
+          <Trash2 className="w-4 h-4" />
           <span className="sr-only">Delete transaction</span>
         </Button>
       </AlertDialogTrigger>
@@ -75,8 +75,8 @@ export function DeleteTransactionDialog({
           <AlertDialogTitle>Delete Transaction</AlertDialogTitle>
           <AlertDialogDescription>
             Are you sure you want to delete this transaction?
-            <div className="mt-4 rounded-lg border bg-muted/50 p-4">
-              <div className="grid gap-2 text-sm">
+            <div className="bg-muted/50 mt-4 p-4 border rounded-lg">
+              <div className="gap-2 grid text-sm">
                 <div className="grid grid-cols-2">
                   <span className="font-medium">Amount:</span>
                   <span
@@ -100,7 +100,7 @@ export function DeleteTransactionDialog({
                 </div>
               </div>
             </div>
-            <p className="mt-4 text-sm text-destructive">
+            <p className="mt-4 text-destructive text-sm">
               This action cannot be undone.
             </p>
           </AlertDialogDescription>
@@ -109,12 +109,12 @@ export function DeleteTransactionDialog({
           <AlertDialogCancel disabled={isDeleting}>Cancel</AlertDialogCancel>
           <AlertDialogAction
             onClick={handleDelete}
-            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            className="bg-destructive hover:bg-destructive/90 border hover:border-destructive border-transparent text-destructive-foreground hover:text-destructive" 
             disabled={isDeleting}
           >
             {isDeleting ? (
               <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                 Deleting...
               </>
             ) : (

@@ -18,22 +18,22 @@ export function MonthlyOverviewWidget() {
 
   if (isLoading) {
     return (
-      <Card className="flex h-[600px] sm:h-[400px] flex-col">
-        <div className="p-6 space-y-4">
+      <Card className="flex flex-col h-[600px] sm:h-[400px]">
+        <div className="space-y-4 p-6">
           <div className="flex justify-between items-center">
             <div className="space-y-2">
-              <Skeleton className="h-5 w-32" />
-              <Skeleton className="h-4 w-40" />
+              <Skeleton className="w-32 h-5" />
+              <Skeleton className="w-40 h-4" />
             </div>
             <div className="space-y-1 text-right">
-              <Skeleton className="h-8 w-24 ml-auto" />
-              <Skeleton className="h-4 w-16 ml-auto" />
+              <Skeleton className="ml-auto w-24 h-8" />
+              <Skeleton className="ml-auto w-16 h-4" />
             </div>
           </div>
-          <Skeleton className="h-8 w-full" />
+          <Skeleton className="w-full h-8" />
           <div className="space-y-3">
             {Array.from({ length: 3 }).map((_, i) => (
-              <Skeleton key={i} className="h-16 w-full" />
+              <Skeleton key={i} className="w-full h-16" />
             ))}
           </div>
         </div>
@@ -53,9 +53,9 @@ export function MonthlyOverviewWidget() {
   } = data;
 
   return (
-    <Card className="flex h-[600px] sm:h-[400px]  flex-col">
+    <Card className="flex flex-col h-[600px] sm:h-[400px]">
       <MonthlyOverviewHeader netIncome={netIncome} />
-      <CardContent className="flex flex-1 flex-col overflow-hidden p-0">
+      <CardContent className="flex flex-col flex-1 p-0 overflow-hidden">
         <PercentageChangeIndicator
           percentageChange={percentageChange}
           netIncome={netIncome}
@@ -65,19 +65,19 @@ export function MonthlyOverviewWidget() {
           onValueChange={(value) =>
             setSelectedTab(value as "income" | "expenses")
           }
-          className="flex flex-1 flex-col overflow-hidden"
+          className="flex flex-col flex-1 overflow-hidden"
         >
           <TabsNavigation
             incomeCount={currentIncomeTransactions.length}
             expenseCount={currentExpenseTransactions.length}
           />
-          <TabsContent value="income" className="overflow-hidden flex-1">
+          <TabsContent value="income" className="flex-1 overflow-hidden">
             <TransactionList
               transactions={currentIncomeTransactions}
               type="income"
             />
           </TabsContent>
-          <TabsContent value="expenses" className="overflow-hidden flex-1">
+          <TabsContent value="expenses" className="flex-1 overflow-hidden">
             <TransactionList
               transactions={currentExpenseTransactions}
               type="expenses"

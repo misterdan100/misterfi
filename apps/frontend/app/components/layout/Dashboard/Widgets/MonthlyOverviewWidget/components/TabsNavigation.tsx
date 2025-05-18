@@ -11,22 +11,22 @@ export function TabsNavigation({
 }: TabsNavigationProps) {
   return (
     <div className="px-3 sm:px-6 pt-3">
-      <TabsList className="h-9 w-full grid grid-cols-2 p-1">
+      <TabsList className="grid grid-cols-2 p-1 w-full h-9">
         <TabsTrigger
           value="income"
-          className="data-[state=active]:bg-background text-sm flex items-center gap-2"
+          className="flex items-center gap-2 data-[state=active]:bg-accent text-sm"
         >
           Income{" "}
-          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
+          <span className="bg-primary/10 px-2 py-0.5 rounded-full font-medium text-primary text-xs">
             {incomeCount}
           </span>
         </TabsTrigger>
         <TabsTrigger
           value="expenses"
-          className="data-[state=active]:bg-background text-sm flex items-center gap-2"
+          className="flex items-center gap-2 data-[state=active]:bg-accent text-sm"
         >
           Expenses{" "}
-          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
+          <span className="bg-primary/10 px-2 py-0.5 rounded-full font-medium text-primary text-xs">
             {expenseCount}
           </span>
         </TabsTrigger>
