@@ -18,10 +18,17 @@ const ping: RequestHandler = async (
   res: Response,
   next: NextFunction,
 ) => {
+  try {
+    console.log(req.body)
   res.json({
       status: 'success',
       message: 'Everything ok'
     });
+
+
+    } catch (error) {
+      next(error)
+    }
 }
 
 /**
