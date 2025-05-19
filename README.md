@@ -18,7 +18,7 @@ MisterFi is an advanced, full-stack application for personal finance management,
 
 ## 🚀 Live Demonstration
 
-🌐 Live Demo: [https://misterfi-finance.vercel.app/](https://misterfi-finance.vercel.app/)
+🌐 Live Demo: [https://misterfi.vercel.app/](https://misterfi.vercel.app/)
 
 ## ✨ Core Functionalities
 
@@ -71,8 +71,8 @@ misterfi/
 
 ### Infrastructure & Developer Tools
 
-- **Frontend Deployment:** Vercel ([misterfi-finance.vercel.app](https://misterfi-finance.vercel.app/))
-- **Backend Deployment:** Neon
+- **Frontend Deployment:** Vercel ([https://misterfi.vercel.app/](https://misterfi.vercel.app/))
+- **Backend Deployment:** Render
 - **Database Service:** Supabase
 - **Authentication Provider:** Clerk
 - **Package Manager:** pnpm
@@ -161,7 +161,7 @@ MisterFi is set up as a Progressive Web App (PWA) featuring:
 ## Deployment Setup
 
 * **Frontend**: Deployed on Vercel
-* **Backend**: Deployed on Neon
+* **Backend**: Deployed on Render
 * **Database**: PostgreSQL instance managed on Supabase
 * **Authentication**: Clerk production instance
 
